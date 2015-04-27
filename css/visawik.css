@@ -1,0 +1,40 @@
+html,body{
+  width: 100%;
+  margin: 0;
+  font: 13px/18px 'Droid Sans', sans-serif;
+  color: #666;
+  background-color: #eee;
+}
+
+circle {
+  fill: #ccc;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+path.link {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+text {
+  fill: #000;
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+
+.selectedarticle{
+	margin: 0;
+	font-size:80%;
+}
+
+#miandiv{
+  float:left;
+  margin-left: 30px; 
+  margin-top: 15px; 
+}
+#contentdiv{
+  background-color: #FFF;
+  border: solid 1px #666;
+}
