@@ -4,7 +4,7 @@ Visual analytics for Wikipedia analysis [(De Sabbata et al., 2015)](http://ssrn.
 
 ## Getting started
 
-Vis-à-Wik is available at [sdesabbata.github.io/vis-a-wik](http://sdesabbata.github.io/vis-a-wik/uses).
+Vis-à-Wik is available at [sdesabbata.github.io/vis-a-wik](http://sdesabbata.github.io/vis-a-wik).
 
 Vis-à-Wik retrives data from the [Wikipedia API](http://www.mediawiki.org/wiki/API:Main_page), and uses [D3js](http://d3js.org/) to visualize the links between Wikipedia articles as a network diagram. Vis-à-Wik allows to search for Wikiepdia articles in a selected language edition, and visualize the articles selected by the user as a set of nodes, along with the related articles in a second language edition, and the links and language-links between them.
 
