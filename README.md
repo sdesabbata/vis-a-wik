@@ -29,8 +29,12 @@ Vis-à-Wik is just a first step (hopefully) of a larger endeavour.
 Wikipedia is one of the largest platforms based on the concept of asynchronous, distributed, collaborative work. A systematic collaborative exploration and assessment of Wikipedia content and coverage is still however largely missing. On the one hand editors routinely perform quality and coverage control of individual articles, while on the other hand academic research on Wikipedia is mostly focused on global issues, and only sporadically on local assessment. In [(De Sabbata et al., 2015)](http://ssrn.com/abstract=2592528), we argue that collaborative visualizations have the potential to fill this gap, affording editors to collaboratively explore and analyse patterns in Wikipedia content, at different scales. We illustrate how a collaborative visualization service can be an effective tool for editors to create, edit, and discuss public visualizations of Wikipedia data. Combined with the large Wikipedia user-base, and its diverse local knowledge, this could result in a large-scale collection of evidence for critique and activism, and the potential to enhance the quantity and quality of Wikipedia content.
 
 **References**
+
 De Sabbata, Stefano and Çöltekin, Arzu and Eccles, Katherine and Hale, Scott and Straumann, Ralph K, Collaborative Visualizations for Wikipedia Critique and Activism (April 9, 2015). In Proceedings of ICWSM. AAAI, Forthcoming. Available at SSRN: http://ssrn.com/abstract=2592528
+
 Keim, D., Andrienko, G., Fekete, J. D., Görg, C., Kohlhammer, J., and Melançon, G. 2008. Visual analytics: Definition, process, and challenges (pp. 154-175). Springer Berlin Heidelberg.
+
 Thomas, J. J., and Cook, K. A., 2005. Illuminating the path:[the research and devel-opment agenda for visual analytics]. IEEE Computer Society.
+
 Tukey, J. W. 1977. Exploratory data analysis. Reading, Ma, 231, 32.
 
