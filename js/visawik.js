@@ -15,7 +15,7 @@
 // (does not currently support 'continue',
 // only loading the first 500 results)
 function wpapi_search(query, querylang, callbackf){
-	var wpapi_search_query = "http://"+encodeURIComponent(querylang)+".wikipedia.org/w/api.php?action=query&list=search&srlimit=500&format=json&srsearch="+encodeURIComponent(query)+"&callback=?";
+	var wpapi_search_query = "http://"+encodeURIComponent(querylang)+".wikipedia.org/w/api.php?action=query&&rawcontinue=&list=search&srlimit=500&format=json&srsearch="+encodeURIComponent(query)+"&callback=?";
 	console.log(wpapi_search_query);
 	$.getJSON(wpapi_search_query ,callbackf);
 }
@@ -24,7 +24,7 @@ function wpapi_search(query, querylang, callbackf){
 // (does not currently support 'continue' as it's
 // only used to retrieve info of one article at time)
 function wpapi_article(query, querylang, callbackf){
-	var wpapi_article_query = "http://"+encodeURIComponent(querylang)+".wikipedia.org/w/api.php?action=query&prop=info&format=json&titles="+encodeURIComponent(query)+"&callback=?";
+	var wpapi_article_query = "http://"+encodeURIComponent(querylang)+".wikipedia.org/w/api.php?action=query&rawcontinue=&prop=info&format=json&titles="+encodeURIComponent(query)+"&callback=?";
 	console.log(wpapi_article_query);
 	$.getJSON(wpapi_article_query ,callbackf);
 }
@@ -32,9 +32,9 @@ function wpapi_article(query, querylang, callbackf){
 // Wikipedia API Links query wrapper
 function wpapi_links(query, querylang, plcontinue, callbackf){
 	if(plcontinue==null){
-		var wpapi_links_query = "http://"+encodeURIComponent(querylang)+".wikipedia.org/w/api.php?action=query&prop=links&pllimit=500&format=json&titles="+encodeURIComponent(query)+"&callback=?";
+		var wpapi_links_query = "http://"+encodeURIComponent(querylang)+".wikipedia.org/w/api.php?action=query&rawcontinue=&prop=links&pllimit=500&format=json&titles="+encodeURIComponent(query)+"&callback=?";
 	}else{
-		var wpapi_links_query = "http://"+encodeURIComponent(querylang)+".wikipedia.org/w/api.php?action=query&prop=links&pllimit=500&format=json&titles="+encodeURIComponent(query)+"&callback=?&plcontinue="+encodeURIComponent(plcontinue);
+		var wpapi_links_query = "http://"+encodeURIComponent(querylang)+".wikipedia.org/w/api.php?action=query&rawcontinue=&prop=links&pllimit=500&format=json&titles="+encodeURIComponent(query)+"&callback=?&plcontinue="+encodeURIComponent(plcontinue);
 	}
 	console.log(wpapi_links_query);
 	$.getJSON(wpapi_links_query ,callbackf);
@@ -44,7 +44,7 @@ function wpapi_links(query, querylang, plcontinue, callbackf){
 // (does not currently support 'continue' as it's
 // only used to retrieve one link at time)
 function wpapi_langlink(query, querylang, lllang, callbackf){
-	var wpapi_article_query = "http://"+encodeURIComponent(querylang)+".wikipedia.org/w/api.php?action=query&prop=langlinks&format=json&titles="+encodeURIComponent(query)+"&callback=?&lllang="+encodeURIComponent(lllang);
+	var wpapi_article_query = "http://"+encodeURIComponent(querylang)+".wikipedia.org/w/api.php?action=query&rawcontinue=&prop=langlinks&format=json&titles="+encodeURIComponent(query)+"&callback=?&lllang="+encodeURIComponent(lllang);
 	console.log(wpapi_article_query);
 	$.getJSON(wpapi_article_query ,callbackf);
 }
@@ -64,7 +64,7 @@ function searchwikipedia(){
     	// option_html will contain all the options values for the multiple selection
     	// one per each results from the Wikipedia API
     	$.each(data.query.search, function(i, item) {
-    		var searchResultPageId = "SRPId_"+item.title.replace(/\(|\)|,|\s/g,'_');
+    		var searchResultPageId = "SRPId_"+item.title.replace(/\(|\)|.|,|\s/g,'_');
     		option_html += "<option id=\""+searchResultPageId+"\" value=\""+encodeURIComponent(item.title)+"\">&#x2610;&nbsp;"+item.title+"</option>";
     	});
         $("#resultsselect").html(option_html);
@@ -80,7 +80,7 @@ function addToSelectedArticles(articles){
 		var articleReference = lang+":"+decodeURIComponent(article);
 		if(selectedArticles.indexOf(articleReference)==-1){
 			selectedArticles.push(articleReference);
-    		var searchResultPageId = "#SRPId_"+decodeURIComponent(article).replace(/\(|\)|,|\s/g,'_');
+    		var searchResultPageId = "#SRPId_"+decodeURIComponent(article).replace(/\(|\)|.|,|\s/g,'_');
     		$(searchResultPageId).html("&check;&nbsp;"+decodeURIComponent(article));
 			$("#selectedarticleslist").append("<p id=\"articleReference"+lang+article+"\" class=\"selectedarticle\">"+decodeURIComponent(article)+"</p>");
 		}
